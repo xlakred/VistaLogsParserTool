@@ -26,11 +26,6 @@ public class ReadProperties {
             // load a properties file
             prop.load(input);
 
-            // get the property value and print it out
-            // System.out.println(prop.getProperty("nvista1"));
-            // System.out.println(prop.getProperty("nvista2"));
-            // System.out.println(prop.getProperty("nvista-batch1"));
-
         } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
@@ -56,11 +51,6 @@ public class ReadProperties {
 
             // load a properties file
             prop.load(input);
-
-            // get the property value and print it out
-            // System.out.println(prop.getProperty("nvista1"));
-            // System.out.println(prop.getProperty("nvista2"));
-            // System.out.println(prop.getProperty("nvista-batch1"));
 
         } catch (IOException ex) {
             ex.printStackTrace();

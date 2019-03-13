@@ -144,6 +144,8 @@ public class ReadPerfstatsLogs {
                     System.out.println("Unable to open file '" + fileName + "'");
                 } catch (IOException ex) {
                     System.out.println("Error reading file '" + fileName + "'");
+                    // Or we could just do this:
+                    // ex.printStackTrace();
                 }
             }
 

@@ -219,6 +219,8 @@ public class ReadLogsFilesV5 {
             contentsInterfaceMetric.append(";");
             contentsInterfaceMetric.append("GCCAgreedRange");
             contentsInterfaceMetric.append(";");
+            contentsInterfaceMetric.append("GCCAgreedSLA");
+            contentsInterfaceMetric.append(";");
             contentsInterfaceMetric.append("REDAAgreedRange");
         }
         contentsInterfaceMetric.append(System.getProperty("line.separator"));
@@ -2543,6 +2545,37 @@ bean.setDate(date);bean.setHr(hr);bean.setMinute(minute);bean.setSec(sec);bean.s
 
                                     contents.append(";");
                                     contents.append(gccAgreedTime);
+
+                                    String gccAgreedSLA = null;
+
+                                    if (time <= 5) {
+                                        gccAgreedSLA = "(A) 0.0 - 5.0 Sec";
+                                    } else if (time > 5 && time <= 10) {
+                                        gccAgreedSLA = "(B) 5.0 - 10.0 Sec";
+                                    } else if (time >= 10 && time <= 15) {
+                                        gccAgreedSLA = "(C) 10.0 - 15.0 Sec";
+                                    } else if (time >= 15 && time <= 45) {
+                                        gccAgreedSLA = "(D) 15.0 - 45.0 Sec";
+                                    } else if (time >= 45 && time <= 50) {
+                                        gccAgreedSLA = "(E) 45.0 - 50.0 Sec";
+                                    } else if (time > 50 && time <= 80) {
+                                        gccAgreedSLA = "(F) 50.0 - 80.0 Sec";
+                                    } else if (time > 80 && time <= 100) {
+                                        gccAgreedSLA = "(G) 80.0 - 100.0 Sec";
+                                    } else if (time > 100 && time <= 150) {
+                                        gccAgreedSLA = "(H) 100.0 - 150.0 Sec";
+                                    } else if (time > 150 && time <= 300) {
+                                        gccAgreedSLA = "(I) 150.0 - 300.0 Sec";
+                                    } else if (time > 300 && time <= 600) {
+                                        gccAgreedSLA = "(J) 300.0 - 600.0 Sec";
+                                    } else if (time > 600 && time <= 900) {
+                                        gccAgreedSLA = "(K) 600.0 - 900.0 Sec";
+                                    } else if (time > 900) {
+                                        gccAgreedSLA = "(L) 900.0 - Sec";
+                                    }
+
+                                    contents.append(";");
+                                    contents.append(gccAgreedSLA);
 
                                     String REDAAgreedTime = null;
                                     time = time + 0.7;
